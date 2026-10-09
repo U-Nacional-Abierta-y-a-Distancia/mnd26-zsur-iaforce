@@ -1,0 +1,48 @@
+GUIA SENCILLA: ABRIR GUARDIANES DEL TERRITORIO CON XAMPP
+
+Necesitas XAMPP instalado y la version WebGL del juego. La carpeta Assets del proyecto de Unity no sirve para abrir el juego en el navegador: necesitas la compilacion que incluye index.html y la carpeta Build.
+
+1. DESCARGA Y EXTRAE EL JUEGO
+Descarga el ZIP de la version WebGL y extraelo.
+Ubica la carpeta que contiene index.html, Build y, si existe, TemplateData.
+
+2. COPIA EL JUEGO EN XAMPP
+Abre la carpeta htdocs de tu instalacion de XAMPP.
+La ruta habitual en Windows es:
+C:\xampp\htdocs
+Crea dentro una carpeta llamada Guardianes.
+Copia dentro todos los archivos de la compilacion.
+Debe quedar asi:
+C:\xampp\htdocs\producto\index.html
+C:\xampp\htdocs\producto\Build
+C:\xampp\htdocs\producto\TemplateData (si viene incluida)
+
+3. INICIA APACHE
+Abre XAMPP Control Panel.
+En la fila Apache, pulsa Start.
+Debe aparecer activo, normalmente en verde.
+No necesitas iniciar MySQL para este juego.
+
+4. ABRE EL JUEGO
+Abre Chrome o Edge y escribe:
+http://localhost/producto/
+Tambien puedes abrir:
+http://localhost/producto/index.html
+Espera a que cargue y pulsa Jugar.
+No abras index.html haciendo doble clic: debe abrirse desde la direccion de localhost.
+
+5. SI APACHE USA OTRO PUERTO
+Si configuraste Apache en el puerto 8080, usa:
+http://localhost:8080/Guardianes/
+Usa el puerto real configurado en Apache.
+
+6. SI NO FUNCIONA
+- Error 404: revisa el nombre de la carpeta y que index.html este directamente dentro de Guardianes, no dentro de otra subcarpeta.
+- Apache no inicia: revisa el mensaje del panel. Otro programa puede estar usando su puerto.
+- Error de archivos comprimidos .br o .gz: para una prueba local sencilla, vuelve a generar el juego en Unity con Compression Format en Disabled y copia nuevamente la compilacion completa. Alternativamente, la version comprimida necesita la configuracion correspondiente de Apache o Decompression Fallback habilitado al compilar.
+- Sin audio: haz clic dentro del juego y revisa el volumen del navegador.
+- Si reemplazaste el juego: recarga con Ctrl + F5.
+
+IMPORTANTE
+XAMPP sirve los archivos; no convierte un proyecto Unity en juego web.
+localhost funciona en el mismo computador donde esta ejecutandose Apache.
